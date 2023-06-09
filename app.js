@@ -10,15 +10,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require("mongoose-findorcreate");
 
-// const encrypt = require("mongoose-encryption");
-// const md5 = require("md5");
-// const bcrypt = require("bcrypt");
-// const saltRounds = 10;
-
 const app = express();
-
-// console.log(process.env.API_KEY);
-
 app.use(express.static("public"));
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -46,10 +38,6 @@ const userSchema = new mongoose.Schema({
 
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(findOrCreate);
-
-// console.log(md5("user123"));
-// userSchema.plugin(encrypt, { secret: process.env.SECRET, encryptedFields: ['password'] });
-
 const User = new mongoose.model("User", userSchema);
 
 passport.use(User.createStrategy());
