@@ -60,7 +60,7 @@ passport.serializeUser(function(user, cb) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://confessions-web.onrender.com/auth/google/secrets"
+    callbackURL: "https://confessions-web-i6wb.onrender.com/auth/google/secrets"
   },
   function(accessToken, refreshToken, profile, cb) {
     // console.log(profile);
